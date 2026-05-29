@@ -2,13 +2,12 @@
 FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
 
-# Copy pom.xml and download dependencies
+# Copy project files
 COPY pom.xml .
-RUN --mount=type=cache,target=/root/.m2,id=m2-cache mvn dependency:go-offline
-
-# Copy source code and build
 COPY src ./src
-RUN --mount=type=cache,target=/root/.m2,id=m2-cache mvn clean package -DskipTests
+
+# Build application
+RUN mvn clean package -DskipTests
 
 # Runtime Stage
 FROM eclipse-temurin:21-jre-alpine
