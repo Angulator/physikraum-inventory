@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+<body>
+<h2>Neue Kategorie</h2>
+<form th:action="@{/categories}" method="post" th:object="${category}">
+    <div>
+        <label>Name</label>
+        <input type="text" th:field="*{name}" />
+    </div>
+    <button type="submit">Speichern</button>
+</form>
+</body>
+</html>

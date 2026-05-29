@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+<body>
+<h2>Aktivitätsprotokoll</h2>
+<ul>
+    <li th:each="l : ${logs}">
+        <span th:text="${#temporals.format(l.timestamp, 'yyyy-MM-dd HH:mm')} + ' - ' + l.action"></span>
+    </li>
+</ul>
+</body>
+</html>

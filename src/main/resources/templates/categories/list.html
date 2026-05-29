@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+<body>
+<h2>Kategorien</h2>
+<a th:href="@{/categories/create}">Neu</a>
+<ul>
+    <li th:each="c : ${categories}" th:text="${c.name}"></li>
+</ul>
+</body>
+</html>

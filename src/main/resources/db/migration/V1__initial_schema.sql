@@ -1,0 +1,2 @@
+-- Flyway initial schema managed by JPA (empty placeholder if using ddl-auto=validate)
+-- Keeping file to maintain versioning

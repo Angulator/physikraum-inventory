@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+<body>
+<h2>Gegenstände</h2>
+<a th:href="@{/items/create}">Neu</a>
+<table>
+    <tr><th>Name</th><th>Kategorie</th><th>Menge</th><th>Aktionen</th></tr>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.category != null ? item.category.name : '—'}"></td>
+        <td th:text="${item.quantity}"></td>
+        <td>
+            <a th:href="@{'/items/' + ${item.id} + '/edit'}">Bearbeiten</a>
+            <form th:action="@{'/items/' + ${item.id} + '/delete'}" method="post" style="display:inline">
+                <button type="submit">Löschen</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
